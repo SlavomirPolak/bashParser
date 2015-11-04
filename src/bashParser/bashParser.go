@@ -24,7 +24,7 @@ and return map of variables(key) with its content (value of key).
 
 import (
 	"fmt"
-	"bashParser/pkg/shlex"
+	"github.com/flynn-archive/go-shlex"
 	"bashParser/src/fileOpening"
 	"strings"
 )
