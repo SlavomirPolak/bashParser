@@ -35,7 +35,7 @@ func errorHandling (err error) {
 	}
 }
 
-func useShlex(path string) map[string]string {	
+func UseShlex(path string) map[string]string {	
 	bashString, err := fileOpening.InputFromFileToString(path)
 	if err != nil {
 		fmt.Println("Error has occured during opening of file.")
