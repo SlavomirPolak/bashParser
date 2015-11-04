@@ -21,8 +21,8 @@ import "testing"
 /**
  *	test of keys
  */
-func Test_useShlex_1(t *testing.T) {
-	keyValueMap := useShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
+func Test_UseShlex_1(t *testing.T) {
+	keyValueMap := UseShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
 	
 	expectedKeys := []string{"NAME", "EMAIL"}
 	keys := make([]string, 0, len(keyValueMap))
@@ -33,9 +33,9 @@ func Test_useShlex_1(t *testing.T) {
 	
 	for i := 0; i < len(keyValueMap)-1; i++ {
 		if expectedKeys[i] != keys[i] {
-			t.Error("useShlex did not work properly, there are unexpected variables names in map")
+			t.Error("UseShlex did not work properly, there are unexpected variables names in map")
 		} else {
-			t.Log("useShlex works properly")
+			t.Log("UseShlex works properly")
 		}
 	}
 }
@@ -43,18 +43,18 @@ func Test_useShlex_1(t *testing.T) {
 /**
  *	test of values of keys "NAME" and "EMAIL"
  */
-func Test_useShlex_2(t *testing.T) {
-	keyValueMap := useShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
+func Test_UseShlex_2(t *testing.T) {
+	keyValueMap := UseShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
 	
 	if keyValueMap["NAME"] != "Slavo" {
-		t.Error("useShlex did not work properly, value of key \"NAME\" is unexpected")
+		t.Error("UseShlex did not work properly, value of key \"NAME\" is unexpected")
 	} else {
-		t.Log("useShlex works properly")
+		t.Log("UseShlex works properly")
 	}
 	
 	if keyValueMap["EMAIL"] != "johndoe@mail.com" {
-		t.Error("useShlex did not work properly, value of key \"EMAIL\" is unexpected")
+		t.Error("UseShlex did not work properly, value of key \"EMAIL\" is unexpected")
 	} else {
-		t.Log("useShlex works properly")
+		t.Log("UseShlex works properly")
 	}
 }

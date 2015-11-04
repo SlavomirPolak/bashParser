@@ -29,12 +29,6 @@ import (
 	"strings"
 )
 
-func errorHandling (err error) {
-	if err != nil {
-		fmt.Println("Error during opening of file.")
-	}
-}
-
 func UseShlex(path string) map[string]string {	
 	bashString, err := fileOpening.InputFromFileToString(path)
 	if err != nil {
