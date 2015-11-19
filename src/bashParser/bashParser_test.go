@@ -16,13 +16,26 @@ limitations under the License.
 
 package bashParser
 
-import "testing"
+import (
+	"testing"
+	"path/filepath"
+	"strings"
+)
 
 /**
  *	test of keys
  */
 func Test_UseShlex_1(t *testing.T) {
-	keyValueMap := UseShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
+	path, err := filepath.Abs("")
+		if err != nil {
+		t.Error("Error during finding of absolute path.")
+	}
+	
+	if strings.HasSuffix(path, "/src/bashParser") {
+        path = path[:len(path)-len("/src/bashParser")]
+    }
+
+	keyValueMap, _ := UseShlex(path + "/data/testFile.sh")
 	
 	expectedKeys := []string{"NAME", "EMAIL"}
 	keys := make([]string, 0, len(keyValueMap))
@@ -44,7 +57,16 @@ func Test_UseShlex_1(t *testing.T) {
  *	test of values of keys "NAME" and "EMAIL"
  */
 func Test_UseShlex_2(t *testing.T) {
-	keyValueMap := UseShlex("/home/wolfik/gocode/src/bashParser/data/testFile.sh")
+	path, err := filepath.Abs("")
+		if err != nil {
+		t.Error("Error during finding of absolute path.")
+	}
+	
+	if strings.HasSuffix(path, "/src/bashParser") {
+        path = path[:len(path)-len("/src/bashParser")]
+    }
+
+	keyValueMap, _ := UseShlex(path + "/data/testFile.sh")
 	
 	if keyValueMap["NAME"] != "Slavo" {
 		t.Error("UseShlex did not work properly, value of key \"NAME\" is unexpected")
