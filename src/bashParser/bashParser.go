@@ -23,21 +23,20 @@ and return map of variables(key) with its content (value of key).
 */
 
 import (
-	"fmt"
-	"github.com/flynn-archive/go-shlex"
-	"bashParser/src/fileOpening"
 	"strings"
+	"bashParser/src/fileOpening"
+	"github.com/flynn-archive/go-shlex"
 )
 
-func UseShlex(path string) map[string]string {	
+func UseShlex(path string) (map[string]string, error) {	
 	bashString, err := fileOpening.InputFromFileToString(path)
 	if err != nil {
-		fmt.Println("Error has occured during opening of file.")
+		return nil, err
 	}
 
 	keyValueArray, err := shlex.Split(bashString)
 	if err != nil {
-		fmt.Println("Error has occured during string parsing.")
+		return nil, err
 	}
 	
 	var keyValueMap map[string] string
@@ -53,5 +52,5 @@ func UseShlex(path string) map[string]string {
 		}
 	}
 	
-	return keyValueMap
+	return keyValueMap, nil
 }
