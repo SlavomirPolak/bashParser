@@ -20,7 +20,6 @@ import (
 	"testing"
 	"path/filepath"
 	"strings"
-	"fmt"
 )
 
 /**
@@ -36,7 +35,6 @@ func Test_InputFromFileToString_1(t *testing.T) {
 	if strings.HasSuffix(path, "/src/fileOpening") {
         path = path[:len(path)-len("/src/fileOpening")]
     }
-	fmt.Println(path)
 
 	result, err := InputFromFileToString(path + "/data/testFile.sh")
 
