@@ -4,7 +4,7 @@ bashParser is Go package that uses go-shlex lexer for extracting variables and i
 
 ###Installation
 
-- import bashParser from github (import "github.com/SlavomirPolak/bashParser/src/bashParser"), to go package that needs to use bashparser
+- import bashParser from github (import "github.com/SlavomirPolak/bashParser/src"), to go package that needs to use bashparser
 - use "go get" in terminal
 
 ###Usage
